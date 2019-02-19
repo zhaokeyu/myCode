@@ -1,0 +1,7 @@
+{
+  "code": 1,
+  "message": "success",
+  "result": {
+    "games": ["火线", "联盟", "王者荣耀"]
+  }
+}

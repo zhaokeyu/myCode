@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="http://localhost:3000/images/zhenji.jpg" download="zj.jpg">甄姬</a>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    $(function () {
+        $.ajax({
+            url: 'http://localhost:3000/mock/heros',
+            type: 'get',
+            success: function (data) {
+                console.log(data);
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

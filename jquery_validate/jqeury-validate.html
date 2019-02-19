@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery-validate</title>
+</head>
+<body>
+<div>
+    <form action="http://www.baidu.com">
+        <div>
+            <label for="" class="label_uname">用户名</label>
+            <input type="text" name="uname" autocomplete="off">
+        </div>
+        <div>
+            <label for="" class="label_pwd">密码</label>
+            <input type="text" name="pwd" autocomplete="off">
+        </div>
+        <div>
+            <input type="submit" value="提交">
+        </div>
+    </form>
+</div>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./jquery.validate.min.js"></script>
+<script>
+    $(function () {
+        /*提交制定表单配置*/
+        $('form').validate({
+            /*rules选项用来配置验证规则：key为控件name值，value为一个对象，可以配置多个插件提供的验证规则*/
+            rules: {
+                uname: {
+                    required: true
+                },
+                pwd: {
+                    required: true,
+                    minlength: 5
+                }
+            },
+            /*messages选项用来配置验证失败提示字段：key为控件name值，value为一个对象，可以配置验证规则对应的提示字段*/
+            messages: {
+                uname: {
+                    required: '请输入用户名',
+                },
+                pwd: {
+                    required: '请输入密码',
+                    minlength: '密码长度最少为5'
+                }
+            },
+            /*submitHandler：所有验证通过回调。需要主动触发*/
+            submitHandler: function (form) {    //form为一个原声dom对象
+                /*当表单验证通过，且用户再次点击了提交按钮，触发这里的代码*/
+                // form.submit();
+            },
+            /*errorPlacement：设置验证提示信息位置*/
+            errorPlacement: function (error, ele) { //error为错误提示信息jq对象，ele为当前控件jq对象
+                //error.appendTo(ele.parent());   //默认值(默认追加到当前验证控件父元素中)
+                ele.closest('form').find('.label_'+ele.attr('name')+'').append(error);
+            },
+            /*errorElement：设置提示字段放在什么元素内。默认是放在label标签中的*/
+            errorElement: "span"
+        })
+    })
+</script>
+</body>
+</html>

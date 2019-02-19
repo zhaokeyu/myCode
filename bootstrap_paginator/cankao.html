@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>教师信息管理系统</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <style>
+        body{font-family: "Microsoft YaHei"}
+        .navbar-inverse{border-radius: 0}
+        .table{text-align: center;}
+        .table-bordered>thead>tr:first-child>td{border-bottom: none;font-weight:bold}
+        .pagination{margin: 0}
+        .panel-heading{line-height: 30px}
+        .loading{
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            background: url("data:image/gif;base64,R0lGODlhKwALAPEAAP///7u7u97e3ru7uyH5BAkKAAAAIf4aQ3JlYXRlZCB3aXRoIGFqYXhsb2FkLmluZm8AIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAKwALAAACMoSOCMuW2diD88UKG95W88uF4DaGWFmhZid93pq+pwxnLUnXh8ou+sSz+T64oCAyTBUAACH5BAkKAAAALAAAAAArAAsAAAI9xI4IyyAPYWOxmoTHrHzzmGHe94xkmJifyqFKQ0pwLLgHa82xrekkDrIBZRQab1jyfY7KTtPimixiUsevAAAh+QQJCgAAACwAAAAAKwALAAACPYSOCMswD2FjqZpqW9xv4g8KE7d54XmMpNSgqLoOpgvC60xjNonnyc7p+VKamKw1zDCMR8rp8pksYlKorgAAIfkECQoAAAAsAAAAACsACwAAAkCEjgjLltnYmJS6Bxt+sfq5ZUyoNJ9HHlEqdCfFrqn7DrE2m7Wdj/2y45FkQ13t5itKdshFExC8YCLOEBX6AhQAADs=") center center no-repeat;
+            background-color: rgba(0,0,0,0.3);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: none;
+        }
+        .btn-loading,
+        .btn-loading:hover,
+        .btn-loading:focus,
+        .btn-loading:active{
+            background-image: url("data:image/gif;base64,R0lGODlhKwALAPEAAP///7u7u97e3ru7uyH5BAkKAAAAIf4aQ3JlYXRlZCB3aXRoIGFqYXhsb2FkLmluZm8AIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAKwALAAACMoSOCMuW2diD88UKG95W88uF4DaGWFmhZid93pq+pwxnLUnXh8ou+sSz+T64oCAyTBUAACH5BAkKAAAALAAAAAArAAsAAAI9xI4IyyAPYWOxmoTHrHzzmGHe94xkmJifyqFKQ0pwLLgHa82xrekkDrIBZRQab1jyfY7KTtPimixiUsevAAAh+QQJCgAAACwAAAAAKwALAAACPYSOCMswD2FjqZpqW9xv4g8KE7d54XmMpNSgqLoOpgvC60xjNonnyc7p+VKamKw1zDCMR8rp8pksYlKorgAAIfkECQoAAAAsAAAAACsACwAAAkCEjgjLltnYmJS6Bxt+sfq5ZUyoNJ9HHlEqdCfFrqn7DrE2m7Wdj/2y45FkQ13t5itKdshFExC8YCLOEBX6AhQAADs=");
+            background-position: center;
+            background-repeat: no-repeat;
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+<!--顶部导航-->
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand"><b>教师信息管理系统</b></a>
+        </div>
+        <div class="navbar-right">
+            <div class="navbar-text">Copyright © 2017</div>
+        </div>
+    </div>
+</nav>
+<!--主体内容-->
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading text-right">
+            <span class="pull-left">教师基本信息管理</span>
+            <a href="javascript:;" class="btn btn-default btn-sm btn-save">添加教师信息</a>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <td width="5%">序号</td>
+                    <td width="10%">姓名</td>
+                    <td width="10%">性别</td>
+                    <td width="15%">所属学院</td>
+                    <td>个人简介</td>
+                    <td width="20%">录入时间</td>
+                    <td width="10%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                    <!--todo-->
+                </tbody>
+            </table>
+            <nav class="text-right">
+                <ul class="pagination">
+                    <!--todo-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<!--模态框组件-->
+<!--编辑模态框-->
+<div class="modal fade" id="editModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h4 class="modal-title">添加教师信息</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <!--todo-->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">添加</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="deleteModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h4 class="modal-title">温馨提示</h4>
+            </div>
+            <div class="modal-body">
+                您是否确定要删除 <span class="text-danger">xxx</span> 教师的信息吗？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loading"></div>
+<script type="text/template" id="list">
+    <% for(var i = 0 ; i < list.length ; i++){ %>
+        <% var item = list[i]; %>
+        <tr class="text-center">
+            <td><%=i+1+(pageNum-1)*pageSize%></td>
+            <td><%=item.name%></td>
+            <td><%=item.sex%></td>
+            <td><%=item.academy%></td>
+            <td><%=item.introduce%></td>
+            <td><%=item.createTime%></td>
+            <td>
+                <a data-id="<%=item.id%>" href="javascript:;" class="btn-update" >修改</a>
+                <a data-id="<%=item.id%>" data-name="<%=item.name%>"  href="javascript:;" class="btn-delete">删除</a>
+            </td>
+        </tr>
+    <% } %>
+</script>
+<script type="text/template" id="edit">
+    <div class="form-group">
+        <% if(id){ %>
+        <input type="hidden" value="<%=id%>" name="id">
+        <% } %>
+        <input value="<%=name%>" type="text" name="name" class="form-control" placeholder="请输入姓名">
+    </div>
+    <div class="form-group">
+        <input value="<%=sex%>" type="text" name="sex" class="form-control" placeholder="请输入性别">
+    </div>
+    <div class="form-group">
+        <input value="<%=academy%>" type="text" name="academy" class="form-control" placeholder="请输入所属学院">
+    </div>
+    <div class="form-group">
+        <textarea name="introduce" class="form-control" placeholder="请输入个人简介"><%=introduce%></textarea>
+    </div>
+</script>
+<script src="assets/jquery/jquery.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/artTemplate/template-native.js"></script>
+<script src="assets/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script>
+    $(function () {
+        var $loading = $('.loading');
+        /*1.首页渲染*/
+        /*
+        * 1.1 获取首页数据   同时：显示加载状态
+        * 1.2 获取数据成功   同时：去掉加载状态
+        * 1.3 获取数据成功   同时：根据数据渲染页面  模版渲染
+        * */
+        var render = function () {
+            /*去定后台需要的参数 */
+            $.ajax({
+                type:'get',
+                url:'../api/findUsers.php',
+                data:{
+                    pageNum:window.page || 1,
+                    pageSize:10
+                },
+                dataType:'json',
+                beforeSend:function () {
+                    $loading.show();
+                },
+                success:function (data) {
+                    console.log(data);
+                    $loading.hide();
+                    /*数据，模版，数据模版绑定，模版逻辑*/
+                    $('tbody').html(template('list',data));
+                    /*记录每一页渲染时候的数据*/
+                    window.list = data.list;
+                    /*初始化分页组件*/
+                    $('.pagination').bootstrapPaginator({
+                        /*请注意与所使用的bootstrap版本对应上*/
+                        bootstrapMajorVersion:3,
+                        /*按钮尺寸*/
+                        size:'small',
+                        /*当前页码*/
+                        currentPage:data.pageNum,
+                        /*中间显示多少个按钮*/
+                        numberOfPages:7,
+                        /*总页数*/
+                        totalPages: Math.ceil(data.total/data.pageSize),
+                        /*监听到按钮点击事件 获取当前按钮的页码*/
+                        onPageClicked:function (event, originalEvent, type,page) {
+                            /* event  jquery */
+                            /* originalEvent  js */
+                            /* type 普通按钮  上一页  下一页  第一个按钮  最后一页按钮*/
+                            /* page  当前页面*/
+                            window.page = page;
+                            render();
+                        }
+                    });
+                }
+            });
+
+        }
+        render();
+
+        /*2.分页渲染*/
+
+
+
+
+        var $editModal = $('#editModal');
+        /*3.添加信息*/
+        /*
+        * 3.1 模态框内容需要确定  （标题：添加教师信息 内容：默认的空表单 按钮：添加）
+        * 3.2 点击添加教师信息按钮  显示模态框
+        *
+        * 3.3 点击添加按钮：发送后台需要的数据进行添加操作
+        * 3.4 发送数据的同时：添加按钮  正在提交中状态
+        * 3.5 当后台返回成功：添加按钮  去掉提交中状态
+        * 3.6 当后台返回成功：关闭模态框
+        * 3.7 当后台返回成功：重新渲染第一页数据
+        * */
+        $('.btn-save').on('click',function () {
+            $editModal.find('.modal-title').html('添加教师信息');
+            $editModal.find('.btn-primary').html('添加').data('type','save');
+            $editModal.find('form').html(template('edit',{}));
+            $editModal.modal('show');
+        });
+        /*
+        * 确认按钮 （添加，修改）
+        * 1. 后台需要的数据不一样   修改 需要ID
+        * 2. 后台接口地址不一样
+        * 3. 成功之后  渲染的页面不一样   添加  首页渲染   修改  当前页渲染
+        * */
+        $editModal.on('click','.btn-primary',function () {
+
+            var $btn = $(this);
+
+            if($btn.hasClass('btn-loading')) return false;
+
+            var formData = $editModal.find('form').serialize();
+
+            var isSave = $btn.data('type') == 'save'?true:false;
+
+            var url = isSave?'../api/saveUser.php':'../api/updateUser.php';
+
+            $.ajax({
+                type:'post',
+                url:url,
+                data:formData,
+                dataType:'json',
+                beforeSend:function () {
+                    $btn.addClass('btn-loading');
+                },
+                success:function (data) {
+                    $btn.removeClass('btn-loading');
+                    if(data.status == 'ok'){
+                        $editModal.modal('hide');
+                        if(isSave){
+                            /*首页渲染*/
+                            window.page = 1;
+                            render();
+                        }else{
+                            /*当前页渲染*/
+                            render();
+                        }
+                    }
+                }
+            })
+        });
+
+        /*4.删除信息*/
+        /*
+        * 4.1 点击删除按钮 弹出模态框
+        * 4.2 删除对应的信息  怎么对应上呢？
+        * 4.3 获取 名字 ID   渲染的时候存起来
+        * 4.4 把名字显示在弹窗内
+        * 4.5 发送id数据的同时：确认按钮  正在提交中状态
+        * 4.6 成功同时：确认按钮  去掉提交中状态
+        * 4.7 成功同时：确认按钮  模态框关闭
+        * 4.8 成功同时：确认按钮  重新渲染
+        * */
+        var $deleteModal = $('#deleteModal');
+        $('body').on('click','.btn-delete',function () {
+            $deleteModal.find('.text-danger').html($(this).data('name'));
+            $deleteModal.find('.btn-primary').data('id',$(this).data('id'));
+            $deleteModal.modal('show');
+        })
+        $deleteModal.on('click','.btn-primary',function () {
+            var $btn = $(this);
+
+            var id = $btn.data('id');
+
+            if($btn.hasClass('btn-loading')) return false;
+
+            $.ajax({
+                type:'post',
+                url:'../api/removeUser.php',
+                data:{
+                    id:id
+                },
+                dataType:'json',
+                beforeSend:function () {
+                    $btn.addClass('btn-loading');
+                },
+                success:function (data) {
+                    $btn.removeClass('btn-loading');
+                    if(data.status == 'ok'){
+                        $deleteModal.modal('hide');
+                        render();
+                    }
+                }
+            });
+        })
+
+        /*5.修改信息*/
+        /*
+         * 5.1 模态框内容需要确定  （标题：修改教师信息 内容：显示对应属性 按钮：修改）
+         * 获取记录的数据  去取对应的数据  通过ID去取
+         * 5.2 点击修改按钮  显示模态框
+         *
+         * 5.3 点击修改按钮：发送后台需要的数据进行修改操作
+         * 5.4 发送数据的同时：修改按钮  正在提交中状态
+         * 5.5 当后台返回成功：修改按钮  去掉提交中状态
+         * 5.6 当后台返回成功：关闭模态框
+         * 5.7 当后台返回成功：重新渲染第一页数据
+         * */
+        var getTeacherInfoById = function (id) {
+            var teacherInfo = null;
+            $.each(window.list,function (i, item) {
+                if(item.id == id){
+                    teacherInfo = item;
+                    return false;
+                }
+            });
+            return teacherInfo;
+        }
+        $('body').on('click','.btn-update',function () {
+            $editModal.find('.modal-title').html('修改教师信息');
+            $editModal.find('.btn-primary').html('修改').data('type','update');
+            var teacherInfo = getTeacherInfoById($(this).data('id'));
+            $editModal.find('form').html(template('edit',teacherInfo));
+            $editModal.modal('show');
+        })
+
+
+
+    })
+</script>
+</body>
+</html>

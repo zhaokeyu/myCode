@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div>开始时间</div>
+<input class="startDate">
+
+<div>结束时间</div>
+<input class="endDate">
+
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../assets/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="../assets/bootstrap-datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
+<script>
+    $('.startDate').datepicker({
+        autoclose: true,          //自动关闭
+        language: 'zh-CN',        //语言
+        format: 'yyyy-mm-dd',     //日期格式
+        startDate: -Infinity,     //日历开始日期
+        endDate: Infinity,        //日历结束日期
+        clearBtn: false,          //显示清除按钮
+        todayBtn: true,          //今天按钮
+        todayHighlight: true,    //今天高亮
+        weekStart: 0,             //星期几是开始
+        beforeShowDay: $.noop,    //在显示日期之前调用的函数
+        calendarWeeks: false,     //是否显示今年是第几周
+        daysOfWeekDisabled: [],   //星期几不可选
+        forceParse: true,         //是否强制转换不符合格式的字符串
+        keyboardNavigation: true, //是否显示箭头导航
+        minViewMode: 0,
+        orientation: "auto",      //方向
+        rtl: false,
+        startView: 0,             //开始显示
+    }).on('changeDate', function(e) {
+        console.log(e.date);
+        var startTime = e.date;
+        $('.endDate').datepicker('setStartDate', startTime)
+    });
+
+    //结束时间
+    $('.endDate').datepicker({
+        todayBtn : "linked",
+        autoclose : true,
+        format: 'yyyy-mm-dd',
+        todayHighlight : true,
+    }).on('changeDate',function(e){
+        var endTime = e.date;
+        $('.startDate').datepicker('setEndDate',endTime);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<!--
+案例说明：一个向上滚动的效果。首先外层有一个固定高度的div，里面有一个定位的ul，使用animate()改变ul的top值来做滚动效果，知道滚动到top为负的ul的高度。
+鼠标移入停止动画，移出需要重新计算剩余滚动距离，再次计算剩余时间，因为鼠标移出与第一次滚动的距离是不一样的，时间也不能用第一次的时间，不然两次滚动的速度就不统一
+-->
+<div class="outerBox">
+    <div class="head"></div>
+    <div class="content">
+        <div class="top">
+            <ul class="scroll_ul top_ul">
+                <li><a href="javascript:void (0)">《111突发事件信息简报》第201800007期（突发事件策测试4）</a></li>
+                <li><a href="javascript:void (0)">《222突发事件信息简报》第201800007期（突发事件策测试4）</a></li>
+                <li><a href="javascript:void (0)">《333突发事件信息简报》第201800007期（突发事件策测试4）</a></li>
+                <li><a href="javascript:void (0)">《444突发事件信息简报》第201800007期（突发事件策测试4）</a></li>
+                <li><a href="javascript:void (0)">《555突发事件信息简报》第201800007期（突发事件策测试4）</a></li>
+            </ul>
+        </div>
+        <div class="line"></div>
+        <div class="bottom">
+            <ul class="scroll_ul bottom_ul">
+                <li><a href="javascript:void (0)">《111工作动态》第18050期）</a></li>
+                <li><a href="javascript:void (0)">《222工作动态》第18050期）</a></li>
+                <li><a href="javascript:void (0)">《333工作动态》第18050期）</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="./assets/jquery/jquery-3.3.1.min.js"></script>
+<!--[if IE 8]>
+<script type="text/javascript" src="./assets/jquery/jquery-1.9.1.min.js"></script>
+<![endif]-->
+<script>
+    $(function () {
+        /*上部分*/
+        var topBoxHeight = $('.outerBox .top').height();    //盒子高度
+        var topUlHeight = $('.top_ul').height();    //滚动ul高度
+        var topNeedTime = needTime('.top_ul');  //需要时间
+        animateFoo('.top_ul',topBoxHeight,topUlHeight,topNeedTime);
+        /*下部分*/
+        var bottomBoxHeight = $('.outerBox .bottom').height();
+        var bottomUlHeight = $('.bottom_ul').height();
+        var bottomNeedTime = needTime('.bottom_ul');
+        animateFoo('.bottom_ul',bottomBoxHeight,bottomUlHeight,bottomNeedTime);
+
+        /*鼠标移入移出开始停止动画*/
+        $('.content>.top,.content>.bottom').on('mouseenter', function () {
+            $(this).find('ul').stop(true, false);
+        }).on('mouseleave', function () {
+            var divClass = $(this).attr('class');   //移入移出div类名
+            var divHeight = $(this).height();
+            var ulClass = '.'+divClass+'>ul';   //移入移出ul类名
+            var ulHeight = $(ulClass).height();
+            var time = needTime(ulClass);    //移入移出当时需要时间
+            animateFoo(ulClass,divHeight,ulHeight,time);
+        })
+    });
+
+    /**
+     *  获取ul当前top值，与ul高度相加计算出的像素就是还要移动的像素值。然后这里设置的是移动1px使用100毫秒
+     * @param className string ul类名
+     * @returns {number} number ul动画所需时间
+     */
+    function needTime(className) {
+        var allPx = parseInt($(className).css('top')) + $(className).height();
+        var allTime = 100*allPx;
+        return allTime
+    }
+
+    /**
+     *
+     * @param ul ul类名
+     * @param boxH 外层div高度。主要用来滚动完之后设置ul的top值，也可以直接设置为0px
+     * @param ulH 滚动ul高度
+     * @param needTime 需要的时间
+     */
+    function animateFoo(ul, boxH, ulH, needTime) {
+        $(ul).stop(true, false).animate({
+            top: -ulH
+        }, needTime, 'linear', function () {
+            $(this).css({
+                top: boxH+'px'
+            });
+            //动画执行完需要重新计算时间
+            needTime = needTime(ul);
+            animateFoo(ul, boxH, ulH, needTime);
+        })
+    }
+</script>
+</body>
+</html>
