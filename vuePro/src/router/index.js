@@ -2,12 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import test from '@/components/test'
-import example from '@/components/example'
-import directive from '@/components/directive'
 import mintUiView from '@/components/mint-ui/mintUiView'
 import mintUiHome from '@/components/mint-ui/mintUiHome'
 import toast from '@/components/mint-ui/js_component/toast'
 import loadmore from '@/components/mint-ui/js_component/loadmore'
+import spinner from '@/components/mint-ui/css_component/spinner'
 
 Vue.use(Router);
 
@@ -21,21 +20,7 @@ const router = new Router({
     {
       path: '/test',
       name: 'test',
-      component: test,
-      beforeEnter: (to, from, next) => {
-        console.log('路由独享守卫函数触发');
-        next();
-      }
-    },
-    {
-      path: '/example',
-      name: 'example',
-      component: example
-    },
-    {
-      path: '/directive',
-      name: 'directive',
-      component: directive
+      component: test
     },
     {
       path: '/mintUiView',
@@ -56,6 +41,11 @@ const router = new Router({
           path: 'loadmore',
           name: 'loadmore',
           component: loadmore
+        },
+        {
+          path: 'spinner',
+          name: 'spinner',
+          component: spinner
         }
       ],
       redirect: '/mintUiView/mintUiHome'

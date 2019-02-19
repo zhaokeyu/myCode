@@ -5,12 +5,6 @@
       <router-link :to="{name:'test'}">测试</router-link>
     </div>
     <div>
-      <router-link :to="{name:'example'}">例子</router-link>
-    </div>
-    <div>
-      <router-link :to="{name:'directive'}">指令</router-link>
-    </div>
-    <div>
       <router-link :to="{name:'mintUiView'}">mint-ui</router-link>
     </div>
   </div>

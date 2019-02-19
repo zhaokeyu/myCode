@@ -19,6 +19,9 @@ Vue.prototype.axios = axios;
 import 'mint-ui/lib/style.min.css'
 import { Loadmore } from 'mint-ui';
 Vue.component(Loadmore.name, Loadmore);
+import { Spinner } from 'mint-ui';
+Vue.component(Spinner.name, Spinner);
+
 
 /*###全局自定义指令*/
 // v-focus

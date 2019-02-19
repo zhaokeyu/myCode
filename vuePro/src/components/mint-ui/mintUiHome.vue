@@ -6,6 +6,9 @@
       <div>
         <router-link :to="{name: 'loadmore'}">loadmore</router-link>
       </div>
+      <div>
+        <router-link :to="{name: 'spinner'}">spinner</router-link>
+      </div>
     </div>
 </template>
 
