@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>loadmore</h2>
+    <h4>loadmore（下拉、上拉加载更多）</h4>
     <div>
       <!--
         常用配置说明：（文档都有）

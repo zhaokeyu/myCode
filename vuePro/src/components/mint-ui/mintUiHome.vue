@@ -9,6 +9,9 @@
       <div>
         <router-link :to="{name: 'spinner'}">spinner</router-link>
       </div>
+      <div>
+        <router-link :to="{name: 'indexlist'}">indexlist</router-link>
+      </div>
     </div>
 </template>
 

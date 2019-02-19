@@ -2,11 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import test from '@/components/test'
+/*###mint-ui*/
 import mintUiView from '@/components/mint-ui/mintUiView'
 import mintUiHome from '@/components/mint-ui/mintUiHome'
 import toast from '@/components/mint-ui/js_component/toast'
 import loadmore from '@/components/mint-ui/js_component/loadmore'
+import indexlist from '@/components/mint-ui/js_component/indexlist'
 import spinner from '@/components/mint-ui/css_component/spinner'
+
 
 Vue.use(Router);
 
@@ -46,7 +49,12 @@ const router = new Router({
           path: 'spinner',
           name: 'spinner',
           component: spinner
-        }
+        },
+        {
+          path: 'indexlist',
+          name: 'indexlist',
+          component: indexlist
+        },
       ],
       redirect: '/mintUiView/mintUiHome'
     }

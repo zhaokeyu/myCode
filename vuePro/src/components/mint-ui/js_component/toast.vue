@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h4>toast</h4>
+    <div>
+      <my-navreturn :title="title"></my-navreturn>
+    </div>
   </div>
 </template>
 
@@ -10,7 +12,7 @@
     name: "toast",
     data() {
       return {
-
+        title: 'toast'
       }
     },
     mounted() {

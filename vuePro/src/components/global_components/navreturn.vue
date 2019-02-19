@@ -2,7 +2,7 @@
   <div>
     <!--该组件使用了mint-ui的mt-header和mt-button组件-->
     <div>
-      <mt-header title="全局返回组件" fixed>
+      <mt-header :title="title" fixed>
         <mt-button icon="back" slot="left" @click="navreturn()">返回</mt-button>
       </mt-header>
     </div>
@@ -12,6 +12,7 @@
 <script>
   export default {
     name: "navreturn",
+    props: ['title'],
     methods: {
       navreturn() {
         this.$router.go(-1);
