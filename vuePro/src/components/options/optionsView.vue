@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "mintUiView",
+    name: "optionsView"
   }
 </script>
 

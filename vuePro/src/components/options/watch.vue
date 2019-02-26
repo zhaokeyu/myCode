@@ -1,12 +1,12 @@
 <template>
   <div>
-    <router-view/>
+
   </div>
 </template>
 
 <script>
   export default {
-    name: "mintUiView",
+    name: "watch"
   }
 </script>
 

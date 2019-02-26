@@ -1,8 +1,11 @@
 <template>
   <div class="hello">
-    <h3>{{ msg }}</h3>
+    <my-navreturn :title="title"></my-navreturn>
     <div>
       <router-link :to="{name:'test'}">测试</router-link>
+    </div>
+    <div>
+      <router-link :to="{name:'optionsView'}">选项</router-link>
     </div>
     <div>
       <router-link :to="{name:'mintUiView'}">mint-ui</router-link>
@@ -15,7 +18,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Home组件'
+      title: 'Home组件'
     }
   }
 }
