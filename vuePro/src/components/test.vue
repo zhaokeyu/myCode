@@ -22,6 +22,11 @@
 
     <div class="box">测试盒子</div>
 
+    <div>
+      <input type="text" v-focus>
+    </div>
+
+    <div v-move class="move">移动</div>
   </div>
 </template>
 
@@ -89,6 +94,20 @@
   .ul-leave-to {
     /*height: 0;*/
     opacity: 0;
+  }
+  .move {
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: pink;
+    text-align: center;
+    line-height: 50px;
+    font-size: 12px;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 
 </style>

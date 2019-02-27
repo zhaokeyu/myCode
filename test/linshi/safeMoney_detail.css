@@ -1,0 +1,292 @@
+/*此文件为安全测试详情页，动支支付详情页，支付申请详情页共用*/
+
+/*安全测试详情页.动支申请详情页.支付申请详情页.###顶部标题###公用*/
+#app > .title {
+    /*border-bottom: 1px solid pink;*/
+    position: relative;
+    padding: 0 15px;
+}
+
+#app > .title > .return {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 15px;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#app > .title > .return > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/icon_arrow_l.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: 100% 100%;
+    background-size: auto 100%;
+}
+
+#app > .title > .text {
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/*安全测试详情页.动支申请详情页.支付申请详情页.###tab导航栏###公用*/
+#app > .tab_nav {
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    -webkit-box-shadow: 0 3px 3px #f0f0f0;
+    -moz-box-shadow: 0 3px 3px #f0f0f0;
+    box-shadow: 0 3px 3px #f0f0f0;
+}
+
+#app > .tab_nav > div {
+    position: relative;
+    font-size: 18px;
+    color: #777777;
+    height: 28px;
+    /*border: 1px solid pink;*/
+}
+
+#app > .tab_nav > div.active > .text {
+    color: #53a8f8;
+}
+
+#app > .tab_nav > div.active > .line {
+    display: block;
+}
+
+#app > .tab_nav > div > span {
+    display: block;
+}
+
+#app > .tab_nav > div > .text.active {
+    color: #1589f6;
+}
+
+#app > .tab_nav > div > .line {
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-color: #1589f6;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    display: none;
+}
+
+/*安全测试详情页.动支申请详情页.支付申请详情页.###class="content"###公用*/
+#app > .content {
+    padding: 0 15px 50px 15px;
+    margin-top: 20px;
+}
+
+/*安全测试详情页.动支申请详情页.支付申请详情页.###content元素下class="module"###公用，共同使用了class="small_t"小标题样式*/
+#app > .content > .module + .module {
+    margin-top: 26px;
+}
+
+#app > .content > .module > .small_t {
+
+}
+
+#app > .content > .module > .small_t > span {
+    display: block;
+    float: left;
+}
+
+#app > .content > .module > .small_t > span:nth-child(1) {
+    width: 4px;
+    height: 16px;
+    background-color: #1589f6;
+    margin-right: 5px;
+}
+
+#app > .content > .module > .small_t > span:nth-child(2) {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+
+/*安全测试详情页.动支申请详情页.支付申请详情页###通过.退回按钮###*/
+#app > .yesOrNo {
+    font-size: 14px;
+    color: #fff;
+    position: fixed;
+    right: 20px;
+    bottom: 70px;
+    opacity: 0.8;
+}
+
+#app > .yesOrNo > div {
+    width: 70px;
+    height: 70px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    padding-top: 15px;
+}
+
+#app > .yesOrNo > div > span {
+    display: block;
+}
+
+#app > .yesOrNo > div > span:nth-child(1) {
+    width: 100%;
+    height: 20px;
+    -webkit-background-size: 100% 100%;
+    background-size: 20px 20px;
+    background-position: center 0;
+    background-image: url('../images/shen.png');
+    background-repeat: no-repeat;
+}
+
+#app > .yesOrNo > div > span:nth-child(2) {
+    width: 100%;
+    text-align: center;
+    margin-top: 3px;
+}
+
+#app > .yesOrNo > .yes {
+    background-color: #71d56e;
+}
+
+#app > .yesOrNo > .no {
+    background-color: #ee3719;
+    margin-top: 8px;
+}
+
+/*安全测试详情页.动支申请详情页.支付申请详情页###蒙版###公用*/
+#app > .cloud_modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    z-index: 20;
+}
+
+#app > .cloud_modal > .noIdea {
+    position: absolute;
+    padding: 0 15px;
+    width: 100%;
+    bottom: 0;
+    background-color: #fff;
+}
+
+#app > .cloud_modal > .noIdea textarea {
+    width: 100%;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 10px;
+    line-height: 20px;
+    text-indent: 2em;
+    margin-top: 10px;
+}
+
+#app > .cloud_modal > .noIdea > .btn {
+    display: flex;
+    margin-top: 5px;
+}
+
+#app > .cloud_modal > .noIdea > .btn > span {
+    flex: 1;
+    text-align: center;
+    line-height: 44px;
+    background-color: #f9f9f9;
+}
+
+#app > .cloud_modal > .noIdea > .btn > span:nth-child(1) {
+    margin-right: 20px;
+}
+
+/*安全测试详情页.动支申请详情页.支付申请详情页###tab栏-流程###公用，不是自己的*/
+#partner-only-proc {
+  /* border: 1px solid red; */
+}
+#partner-only-proc > ul {
+  position: relative;
+  height: 100%;
+}
+#partner-only-proc > ul::before {
+  content: '';
+  display: inline-block;
+  border-left: 1px solid #ebedf9;
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  left: 40%;
+}
+#partner-only-proc li {
+  display: -webkit-flex;
+  display: flex;
+  margin-bottom: 16px;
+  position: relative;
+}
+#partner-only-proc li:after{
+  content: '';
+  display: inline-block;
+  border: 1px solid #4b5cc4;
+  border-radius: 50%;
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  left: 40%;
+  z-index: 2;
+  transform: translate(-3px, 1em);
+  -ms-transform: translate(-3px, 1em);
+  -webkit-transform: translate(-3px, 1em);
+  -moz-transform: translate(-3px, 1em);
+  -o-transform: translate(-3px, 1em);
+}
+#partner-only-proc li i {
+  display: inline-block;
+  border-radius: 50%;
+  width: 11px;
+  height: 11px;
+  background: url('../images/partners/no-pass.png') center no-repeat;
+  background-size: cover;
+  position: absolute;
+  left: 40%;
+  top: 1em;
+  z-index: 3;
+  transform: translate(-5px, -2px);
+  -ms-transform: translate(-5px, -2px);
+  -webkit-transform: translate(-5px, -2px);
+  -moz-transform: translate(-5px, -2px);
+  -o-transform: translate(-5px, -2px);
+}
+#partner-only-proc li .time-label {
+  text-align: center;
+  flex: 0 0 40%;
+}
+#partner-only-proc li .time-label-date {
+  color: #555555;
+}
+#partner-only-proc li .time-label-time {
+  color: #888888;
+}
+#partner-only-proc li .proc-content {
+  padding-left: 14px;
+  color: #888888;
+}
+#partner-only-proc li .proc-content strong {
+  color: #555555;
+  line-height: 2;
+}
